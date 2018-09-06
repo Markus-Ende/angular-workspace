@@ -16,6 +16,9 @@
     ],
     "baseUrl": ".",
     "paths": {
+      "@me/ng-pact": [
+        "libs/ng-pact/src/index.ts"
+      ]
     }
   },
   "exclude": [
