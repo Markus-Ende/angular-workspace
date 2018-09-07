@@ -36,9 +36,46 @@
               "libs/ng-pact/tsconfig.lib.json",
               "libs/ng-pact/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    },
+    "ng-pact-integrationtest": {
+      "root": "libs/ng-pact",
+      "sourceRoot": "libs/ng-pact/src",
+      "projectType": "library",
+      "prefix": "me",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "libs/ng-pact/tsconfig.lib.json",
+            "project": "libs/ng-pact/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "libs/ng-pact/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/ng-pact/src/test-integration/karma/test-pact.ts",
+            "tsConfig": "libs/ng-pact/tsconfig.pact.json",
+            "karmaConfig":
+              "libs/ng-pact//src/test-integration/karma/karma-pact.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/ng-pact/tsconfig.lib.json",
+              "libs/ng-pact/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
           }
         }
       }

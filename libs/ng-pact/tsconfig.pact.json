@@ -1,0 +1,9 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../dist/out-tsc/libs/ng-pact",
+    "types": ["jasmine", "node"]
+  },
+  "files": ["src/test-integration/karma/test-pact.ts"],
+  "include": ["**/*.spec.ts", "**/*.d.ts"]
+}
